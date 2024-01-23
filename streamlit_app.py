@@ -18,7 +18,7 @@ streamlit.dataframe(fruits_selected_data)
 
 streamlit.header("Fruityvice Fruit Advice!")
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 #streamlit.text(fruityvice_response.json())
 
 # write your own comment -what does the next line do? 
