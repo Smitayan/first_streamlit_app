@@ -13,3 +13,6 @@ streamlit.header("🍌🥭 Build Your Own Fruit Smoothie 🥝🍇")
 fruits_selected=streamlit.multiselect("Pick some fruits:",list(fruits_df.index))
 fruits_selected_data=fruits_df.loc[fruits_selected]
 streamlit.dataframe(fruits_selected_data)
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
