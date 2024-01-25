@@ -41,5 +41,7 @@ streamlit.dataframe(my_fruit_list)
 
 #streamlit.text("What fruit would you like to add?")
 fruit_to_add = streamlit.text_input('What fruit would you like to add?')
+if fruit_to_add not in my_fruit_list:
+  my_cur.execute("insert into fruit_load_list values(fruit_to_add)")
 streamlit.write("Thanks for adding ",fruit_to_add)
 
