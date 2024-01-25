@@ -64,8 +64,8 @@ my_fruit_list = my_cur.fetchall()
 streamlit.dataframe(my_fruit_list)
 
 #streamlit.text("What fruit would you like to add?")
-if fruit_to_add not in my_fruit_list:
+#if fruit_to_add not in my_fruit_list:
   
 
-streamlit.write("Thanks for adding ",fruit_to_add)
+#streamlit.write("Thanks for adding ",fruit_to_add)
 
