@@ -30,7 +30,7 @@ def get_fruit_list():
 
 def insert_row_snowflake(new_fruit):
     with my_cnx.cursor() as my_cur:
-        my_cur.execute(f"insert into fruit_load_list values {new_fruit}")
+        my_cur.execute("insert into fruit_load_list values ('"+ new_fruit +"')")
         return "Thanks for adding" + new_fruit
     
 
@@ -49,10 +49,12 @@ except URLError as e:
   streamlit.error(e)
 #streamlit.text(fruityvice_response.json())
 
+streamlit.header('The fruit load list contains:')
 # write your own comment -what does the next line do? 
 if streamlit.button('Get Fruit Load List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     data_rows = get_fruit_list()
+    my_cnx.close()
     streamlit.dataframe(data_rows)
 
 # write your own comment - what does this do?
@@ -61,6 +63,7 @@ fruit_to_add = streamlit.text_input('What fruit would you like to add?')
 if streamlit.button('Add a Fruit to the List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     back_from_function = insert_row_snowflake(fruit_to_add)
+    my_cnx.close()
     streamlit.text(back_from_function)
     
 
